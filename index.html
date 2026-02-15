@@ -122,6 +122,88 @@
             <span class="hover:text-gold cursor-pointer italic underline">Facebook</span>
         </div>
     </footer>
+<section id="commander" class="py-20 bg-stone-100">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="glass p-8 md:p-12 rounded-3xl shadow-2xl border-t-4 border-gold">
+            <h2 class="text-4xl font-serif text-veloura mb-2 text-center">Finaliser votre Commande</h2>
+            <p class="text-center text-gray-600 mb-10 italic">"Préparez-vous à vivre l'expérience Veloura chez vous"</p>
 
+            <form action="/passer-commande" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Vos Coordonnées</h3>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nom Complet</label>
+                        <input type="text" name="nom" required class="w-full mt-1 p-3 rounded-xl border-gray-200 bg-white/50 focus:ring-2 focus:ring-gold outline-none transition" placeholder="Ex: Ahmed Alami">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Téléphone</label>
+                        <input type="tel" name="telephone" required class="w-full mt-1 p-3 rounded-xl border-gray-200 bg-white/50 focus:ring-2 focus:ring-gold outline-none transition" placeholder="06XXXXXXXX">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Ville de livraison</label>
+                        <select name="ville" class="w-full mt-1 p-3 rounded-xl border-gray-200 bg-white/50 focus:ring-2 focus:ring-gold outline-none transition">
+                            <option>Casablanca</option>
+                            <option>Rabat</option>
+                            <option>Marrakech</option>
+                            <option>Tanger</option>
+                            <option>Autre...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-amber-900 border-b pb-2">Sélection Veloura</h3>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Choisir le Format</label>
+                        <select id="formatSelect" name="produit" class="w-full mt-1 p-3 rounded-xl border-gray-200 bg-white/50 focus:ring-2 focus:ring-gold outline-none transition">
+                            <option value="43">Douceur Caramel (250g) - 43 DH</option>
+                            <option value="85" selected>Éclat Noisette (500g) - 85 DH</option>
+                            <option value="170">Nuance Vanille (1kg) - 170 DH</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Quantité</label>
+                        <input type="number" name="quantite" value="1" min="1" class="w-full mt-1 p-3 rounded-xl border-gray-200 bg-white/50 focus:ring-2 focus:ring-gold outline-none transition">
+                    </div>
+                    <div class="p-4 bg-veloura text-white rounded-2xl mt-4 flex justify-between items-center">
+                        <span>Total estimé :</span>
+                        <span id="totalPrix" class="text-2xl font-bold text-gold">85 DH</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 mt-6">
+                    <button type="submit" class="w-full bg-gold hover:bg-amber-600 text-black font-extrabold py-4 rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300 tracking-widest uppercase">
+                        Confirmer ma commande
+                    </button>
+                    <p class="text-center text-xs text-gray-500 mt-4 italic">Paiement à la livraison partout au Maroc.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+    <script>
+    const formatSelect = document.getElementById('formatSelect');
+    const totalPrixDisplay = document.getElementById('totalPrix');
+    const quantiteInput = document.querySelector('input[name="quantite"]');
+
+    function calculerTotal() {
+        const prixUnitaire = parseInt(formatSelect.value);
+        const quantite = parseInt(quantiteInput.value);
+        const total = prixUnitaire * quantite;
+        totalPrixDisplay.innerText = total + " DH";
+    }
+
+    formatSelect.addEventListener('change', calculerTotal);
+    quantiteInput.addEventListener('input', calculerTotal);
+</script>
+    @PostMapping("/passer-commande")
+public String confirmerCommande(@RequestParam String nom, 
+                                @RequestParam String telephone, 
+                                @RequestParam String produit,
+                                Model model) {
+    // Ici, vous pourriez enregistrer en base de données
+    model.addAttribute("message", "Merci " + nom + ", votre commande de VELOURA est en cours de préparation !");
+    return "confirmation"; // Redirige vers une page de succès
+}
 </body>
 </html>
