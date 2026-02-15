@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOURA Coffee | L'Art du Café Aromatisé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-veloura { background-color: #3d2b1f; } /* Couleur café profond */
+        .text-gold { color: #d4af37; } /* Or pour le côté premium */
+    </style>
+</head>
+<body class="bg-stone-50 font-sans">
+
+    <nav class="p-6 flex justify-between items-center bg-white shadow-sm">
+        <h1 class="text-3xl font-bold tracking-widest text-veloura">VELOURA</h1>
+        <div class="space-x-8 font-medium">
+            <a href="#" class="hover:text-amber-700">Accueil</a>
+            <a href="#produits" class="hover:text-amber-700">Nos Cafés</a>
+            <a href="#histoire" class="hover:text-amber-700">Notre Histoire</a>
+            <button class="bg-veloura text-white px-6 py-2 rounded-full">Boutique</button>
+        </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center text-center text-white">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <img src="/images/nn.jpg" class="absolute inset-0 w-full h-full object-cover -z-10" alt="Veloura Coffee Background">
+        
+        <div class="relative z-10 px-4">
+            <h2 class="text-5xl md:text-7xl font-serif mb-4">"Bringing Happiness in Every Cup"</h2>
+            <p class="text-xl mb-8">Un mélange raffiné de caramel, noisette et vanille[cite: 254, 406].</p>
+            <a href="#produits" class="bg-gold hover:bg-yellow-600 text-black font-bold py-4 px-10 rounded-full transition duration-300">DÉCOUVRIR NOS SAVEURS</a>
+        </div>
+    </header>
+
+    <section id="produits" class="py-20 max-w-6xl mx-auto px-4">
+        <h3 class="text-4xl text-center font-bold mb-16 text-veloura">Notre Collection Premium</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:transform hover:scale-105 transition">
+                <div class="h-64 bg-stone-200 rounded-lg mb-4 flex items-center justify-center text-gray-400 italic">Image: Café Veloura 250g [cite: 461]</div>
+                <h4 class="text-xl font-bold">Format Découverte (250g)</h4>
+                <p class="text-gray-600 my-2">Idéal pour tester l'expérience sensorielle Veloura[cite: 458].</p>
+                <p class="text-2xl font-bold text-amber-800">43 DH</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border-2 border-amber-200 transform scale-105">
+                <div class="h-64 bg-stone-200 rounded-lg mb-4 flex items-center justify-center text-gray-400 italic">Image: Café Veloura 500g [cite: 462]</div>
+                <h4 class="text-xl font-bold">Format Équilibre (500g)</h4>
+                <p class="text-gray-600 my-2">Le parfait compromis entre qualité et quantité[cite: 459].</p>
+                <p class="text-2xl font-bold text-amber-800">85 DH</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:transform hover:scale-105 transition">
+                <div class="h-64 bg-stone-200 rounded-lg mb-4 flex items-center justify-center text-gray-400 italic">Image: Café Veloura 1kg [cite: 463]</div>
+                <h4 class="text-xl font-bold">Format Économique (1kg)</h4>
+                <p class="text-gray-600 my-2">Destiné aux grands amateurs de notes veloutées[cite: 460].</p>
+                <p class="text-2xl font-bold text-amber-800">170 DH</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-veloura text-stone-300 py-12 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-white text-xl font-bold mb-4">VELOURA Coffee</h4>
+                <p>L'art de transformer chaque tasse en une expérience sensorielle[cite: 265].</p>
+            </div>
+            <div>
+                <h4 class="text-white text-xl font-bold mb-4">Contact</h4>
+                <p>Email: veloura@gmail.com [cite: 408]</p>
+                <p>Tél: 0645636772 [cite: 407]</p>
+            </div>
+            <div>
+                <h4 class="text-white text-xl font-bold mb-4">Suivez-nous</h4>
+                <p>Instagram: @VelouraCoffee [cite: 481]</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
